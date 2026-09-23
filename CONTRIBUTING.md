@@ -46,6 +46,8 @@ ZIP contents, all generated links and workflow scope. Real browser checks cover
 ZIP/hash download and JavaScript-disabled navigation. They do not certify the
 meaning of every translation, every OS install, physical fit or printability;
 human review and target-environment checks remain necessary.
+CI retains desktop/mobile screenshots as the `site-browser-evidence` artifact
+for seven days; these are not included in the deployed site or skill ZIP.
 
 For already deployed content:
 
@@ -92,6 +94,8 @@ build先の不明なファイル・symlinkは上書きせずエラーにする�
 ZIP/hash、JavaScriptなしの導線を確認します。
 全翻訳の意味・全OSでのアプリ導入・現物嵌合・造形結果を証明するものではありません。
 内容レビューと対象環境での確認も必要です。
+CIはPC/スマホのスクリーンショットを`site-browser-evidence` artifactに7日間保存します。
+配信サイト・スキルZIPへは含めません。
 
 `web/`は本repoで作ったCSS・小さな言語切替処理・汎用iconのみで、
 外部CDN、追跡、font、アプリ本体に依存しません。

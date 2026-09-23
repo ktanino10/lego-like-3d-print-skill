@@ -32,7 +32,14 @@ jobs:
       - name: Install isolated test browser
         run: python -m playwright install --with-deps chromium
       - name: Check real desktop and mobile browser behavior
-        run: python scripts/check_browser.py
+        run: python scripts/check_browser.py --screenshots "${{ runner.temp }}/site-browser"
+      - name: Save desktop and mobile visual evidence
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: site-browser-evidence
+          path: ${{ runner.temp }}/site-browser
+          retention-days: 7
+          if-no-files-found: error
       - name: Configure Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
